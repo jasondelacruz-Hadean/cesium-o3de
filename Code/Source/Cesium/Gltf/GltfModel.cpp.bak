@@ -65,8 +65,8 @@ namespace Cesium
 
                     auto meshHandle = m_meshFeatureProcessor->AcquireMesh(meshDescriptor, m_materials[loadPrimitive.m_materialId].m_material);
  #endif
-                    AZ::Render::MeshHandleStateNotificationBus::Event(
-                        entityId, &AZ::Render::MeshHandleStateNotificationBus::Events::OnMeshHandleSet, &meshHandle);
+                    //AZ::Render::MeshHandleStateNotificationBus::Event(
+                    //    entityId, &AZ::Render::MeshHandleStateNotificationBus::Events::OnMeshHandleSet, &meshHandle);
 
                     m_meshFeatureProcessor->SetTransform(meshHandle, o3deTransform, o3deScale);
 

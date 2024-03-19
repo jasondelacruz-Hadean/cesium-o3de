@@ -10,6 +10,7 @@
 
 #include "GltfStandardPBR_Common.azsli"
 
+#define OUTPUT_DEPTH 1
 
 // SRGs
 //#include <Atom/Features/PBR/DefaultObjectSrg.azsli>

@@ -55,8 +55,8 @@ namespace Cesium
         , public AZ::TickBus::Handler
     {
     public:
-        RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, AZ::EntityId entityID);
-        //RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor);
+        //RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, AZ::EntityId entityID);
+        RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor);
 
         ~RenderResourcesPreparer() noexcept;
 
