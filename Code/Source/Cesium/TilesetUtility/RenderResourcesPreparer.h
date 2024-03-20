@@ -55,8 +55,7 @@ namespace Cesium
         , public AZ::TickBus::Handler
     {
     public:
-        RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, AZ::EntityId entityID);
-        //RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor);
+        RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor);
 
         ~RenderResourcesPreparer() noexcept;
 
@@ -113,8 +112,5 @@ namespace Cesium
         AZStd::vector<AZ::Data::Instance<AZ::RPI::Material>> m_compileMaterialsQueue;
         AZStd::map<const Cesium3DTilesSelection::RasterOverlay*, std::uint32_t> m_rasterOverlayLayers;
         AZStd::vector<std::uint32_t> m_freeRasterLayers;
-
-        AZ::EntityId m_entityId;
-
     };
 } // namespace Cesium

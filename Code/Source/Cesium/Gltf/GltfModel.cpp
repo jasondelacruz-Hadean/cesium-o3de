@@ -19,9 +19,7 @@ namespace Cesium
     {
     }
 
-    GltfModel::GltfModel(
-        AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, AZ::EntityId entityId, const GltfLoadModel& loadModel)
-    //GltfModel::GltfModel(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, const GltfLoadModel& loadModel)
+    GltfModel::GltfModel(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, const GltfLoadModel& loadModel)
         : m_visible{ true }
         , m_transform{ glm::dmat4(1.0) }
         , m_meshFeatureProcessor{ meshFeatureProcessor }
@@ -65,8 +63,8 @@ namespace Cesium
 
                     auto meshHandle = m_meshFeatureProcessor->AcquireMesh(meshDescriptor, m_materials[loadPrimitive.m_materialId].m_material);
  #endif
-                    AZ::Render::MeshHandleStateNotificationBus::Event(
-                        entityId, &AZ::Render::MeshHandleStateNotificationBus::Events::OnMeshHandleSet, &meshHandle);
+                    /*AZ::Render::MeshHandleStateNotificationBus::Event(
+                        entityId, &AZ::Render::MeshHandleStateNotificationBus::Events::OnMeshHandleSet, &meshHandle);*/
 
                     m_meshFeatureProcessor->SetTransform(meshHandle, o3deTransform, o3deScale);
 

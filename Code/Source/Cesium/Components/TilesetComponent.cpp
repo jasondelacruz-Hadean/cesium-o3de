@@ -102,9 +102,8 @@ namespace Cesium
             // create render resources preparer if not exist
             AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor =
                 AZ::RPI::Scene::GetFeatureProcessorForEntity<AZ::Render::MeshFeatureProcessorInterface>(m_selfEntity);
-            m_renderResourcesPreparer = std::make_shared<RenderResourcesPreparer>(meshFeatureProcessor, m_selfEntity);
-			//m_renderResourcesPreparer = std::make_shared<RenderResourcesPreparer>(meshFeatureProcessor);
-			
+            m_renderResourcesPreparer = std::make_shared<RenderResourcesPreparer>(meshFeatureProcessor);
+
             return Cesium3DTilesSelection::TilesetExternals{
                 CesiumInterface::Get()->GetAssetAccessor(kind),
                 m_renderResourcesPreparer,

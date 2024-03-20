@@ -37,9 +37,8 @@ namespace Cesium
     class GltfModel
     {
     public:
-        GltfModel(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, AZ::EntityId entityId, const GltfLoadModel& loadModel);
-		//GltfModel(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, const GltfLoadModel& loadModel);
-		
+        GltfModel(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, const GltfLoadModel& loadModel);
+
         GltfModel(const GltfModel&) = delete;
 
         GltfModel(GltfModel&&) noexcept;

@@ -47,9 +47,8 @@ namespace Cesium
         builder.Create(CesiumInterface::Get()->GetIOManager(IOKind::LocalFile), filePath, option, loadModel);
         AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor =
             AZ::RPI::Scene::GetFeatureProcessorForEntity<AZ::Render::MeshFeatureProcessorInterface>(GetEntityId());
-        m_impl->m_gltfModel = AZStd::make_unique<GltfModel>(meshFeatureProcessor, GetEntityId(), loadModel);
-		//m_impl->m_gltfModel = AZStd::make_unique<GltfModel>(meshFeatureProcessor, loadModel);
-		
+        m_impl->m_gltfModel = AZStd::make_unique<GltfModel>(meshFeatureProcessor, loadModel);
+
         // Set the model transform
         AZ::Transform worldTransform;
         AZ::TransformBus::EventResult(worldTransform, GetEntityId(), &AZ::TransformBus::Events::GetWorldTM);

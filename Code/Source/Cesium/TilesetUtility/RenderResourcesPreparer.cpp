@@ -28,11 +28,9 @@
 
 namespace Cesium
 {
-    RenderResourcesPreparer::RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor, AZ::EntityId entityId)
-    //RenderResourcesPreparer::RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor)
+    RenderResourcesPreparer::RenderResourcesPreparer(AZ::Render::MeshFeatureProcessorInterface* meshFeatureProcessor)
         : m_meshFeatureProcessor{ meshFeatureProcessor }
         , m_transform{ 1.0 }
-        , m_entityId{ entityId }
     {
         m_freeRasterLayers.reserve(GltfRasterMaterialBuilder::MAX_RASTER_LAYERS);
         for (std::uint32_t i = 0; i < GltfRasterMaterialBuilder::MAX_RASTER_LAYERS; ++i)
@@ -143,8 +141,7 @@ namespace Cesium
         {
             // we destroy loadModel after main thread is done
             AZStd::unique_ptr<GltfLoadModel> loadModel{ reinterpret_cast<GltfLoadModel*>(pLoadThreadResult) };
-            auto handle = m_intrusiveModels.emplace(GltfModel(m_meshFeatureProcessor, m_entityId, *loadModel));
-            //auto handle = m_intrusiveModels.emplace(GltfModel(m_meshFeatureProcessor, *loadModel));
+            auto handle = m_intrusiveModels.emplace(GltfModel(m_meshFeatureProcessor, *loadModel));
             IntrusiveGltfModel& intrusiveModel = *handle;
             intrusiveModel.m_self = std::move(handle);
             intrusiveModel.m_model.SetTransform(m_transform);
